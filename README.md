@@ -3,7 +3,7 @@
 
 Here is the guide to startup the coursework in Virtual Studio Code.
 Requirements:
-- Have a computer that is able to connect to the internet
+- Have a computer with a browser that is able to connect to the internet
 - VS Code: 1.6 GHz or faster processor. 1 GB of RAM.
 
 Instructions:
