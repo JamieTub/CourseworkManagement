@@ -13,15 +13,16 @@ james = {
   class Seed{
      
     constructor(dbFilePath) {
-      //run db as a file
+      //run database as a file
       if (dbFilePath) {
           this.db = new Datastore({ filename: dbFilePath, autoload: true });
-          console.log("DB connected to file: " + dbFilePath);
+          console.log("DB connected to file: ", dbFilePath);
       } else {
-          //in memory
+          //in memory 
           this.db = new Datastore();
       }
-    }
+  }
+
 
     initUser(){
         Users.insert(james, function(err, User){console.log(User)})
@@ -40,9 +41,10 @@ james = {
 
           });
       })
-  }
+    }
+  
 
-   create(Title,Module,DueDate,CompDate) {
+   create(Title, Module, DueDate, CompDate) {
       var entry = {
         Title: Title,
         Module: Module,
@@ -52,49 +54,27 @@ james = {
 
       this.db.insert(entry, function(err, doc){
         if(err){
-          console.log("Can't insert entry title.: ", title);
+          console.log("Can't insert entry title.: ", Title);
         }
       });
     }
 
     init() {
       this.db.insert({
-        Title : 'Chemistry',
-        Module : 'Chemistry PT',
-        DueDate : '07/08/2020',
-        CompDate : '05/04/2020'
+        Title: 'Chemistry',
+        Module: 'Chemistry PT',
+        DueDate: '07/08/2020',
+        CompDate: '05/04/2020'
       });
 
       this.db.insert({
-        Title : 'History',
-        Module : 'History 1912 WWI',
-        DueDate : '07/04/2020',
-        CompDate : '05/04/2020'
+        Title: 'History',
+        Module: 'History 1912 WWI',
+        DueDate: '07/04/2020',
+        CompDate: '05/04/2020'
       });
-
-      this.db.insert({
-        Title : 'Physics',
-        Module : 'Physics LG',
-        DueDate : '07/06/2020',
-        CompDate : '10/06/2020'
-      });
-
-      this.db.insert({
-        Title : 'Mathematics',
-        Module : 'Mathematics QE',
-        DueDate : '06/06/2020',
-        CompDate : '02/03/2020'
-      });
-
-      this.db.insert({
-        Title : 'Gym',
-        Module : 'GYM LDR',
-        DueDate : '02/05/2020',
-        CompDate : '02/05/2020'
-      });
-      
-    };
-
   }
+}
+
 
   module.exports = Seed;

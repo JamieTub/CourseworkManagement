@@ -10,6 +10,7 @@ mustache = require('mustache-express'),
 path = require('path');
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
+//controller = require('./controllers/routes.js');
 
 //db
 const Seed = require("./dbSeed");
@@ -46,20 +47,19 @@ app.get("/coursework", function (request, response) {
 //new coursework
 app.get('/cw-entry', function(request, response){
     response.render("cw-entry");
-})
+});
 
 //cw-entry post
 app.post('/post', function(request, response){
-    if (!request.body.User || !request.body.Title) {
-        response.status(400).send("Coursework Entries must have a title and user.");
+    if (!request.body.Title || !request.body.Module) {
+        
+        response.status(400).send("Coursework Entries must have a title and module.");
         return;
     }
     
-entries.create(request.body.Title, 
-request.body.Module,request.body.DueDate, request.body.CompDate);                          
+entries.create(request.body.Title, request.body.Module, request.body.DueDate, request.body.CompDate);                          
     response.redirect("/coursework");
-})
-
+});
 
 app.post('/register', function(req, res){
     res.type('text');
