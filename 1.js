@@ -13,8 +13,9 @@ app.set('view engine', 'mustache');
 //controller = require('./controllers/routes.js');
 
 //db
-const Seed = require("./dbSeed");
-let seed = new Seed();
+var Seed = require("./dbSeed");
+var dbFile = 'database.dbSeed.db';
+let seed = new Seed(dbFile);
 seed.init();
 
 //seed.initUser();
@@ -50,14 +51,14 @@ app.get('/cw-entry', function(request, response){
 });
 
 //cw-entry post
-app.post('/post', function(request, response){
+app.post('/cw-entry', function(request, response){
     if (!request.body.Title || !request.body.Module) {
         
         response.status(400).send("Coursework Entries must have a title and module.");
         return;
     }
     
-entries.create(request.body.Title, request.body.Module, request.body.DueDate, request.body.CompDate);                          
+seed.create(request.body.Title, request.body.Module, request.body.DueDate, request.body.CompDate);                          
     response.redirect("/coursework");
 });
 

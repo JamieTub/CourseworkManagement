@@ -11,7 +11,6 @@ james = {
   };
 
   class Seed{
-     
     constructor(dbFilePath) {
       //run database as a file
       if (dbFilePath) {
@@ -52,12 +51,12 @@ james = {
         CompDate: CompDate
       };
 
-      this.db.insert(entry, function(err, doc){
-        if(err){
+      this.db.insert(entry, function(err, doc) {
+        if(err) {
           console.log("Can't insert entry title.: ", Title);
         }
       });
-    }
+   }
 
     init() {
       this.db.insert({
@@ -73,8 +72,27 @@ james = {
         DueDate: '07/04/2020',
         CompDate: '05/04/2020'
       });
+
+      this.db.insert({
+        Title: 'Physics',
+        Module: 'Physics LG',
+        DueDate: '07/06/2020',
+        CompDate: '10/06/2020'
+      });
+
+      this.db.insert({
+        Title: 'Mathematics',
+        Module: 'Mathematics QE',
+        DueDate: '06/06/2020',
+        CompDate: '02/03/2020'
+      });
+
+      this.db.insert({
+        Title: 'Gym',
+        Module: 'GYM LDR',
+        DueDate: '02/05/2020',
+        CompDate: '02/05/2020'
+      });
   }
 }
-
-
   module.exports = Seed;
