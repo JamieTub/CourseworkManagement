@@ -1,6 +1,6 @@
 const Datastore = require('nedb');
 
-class DBContext {
+class DbContext {
     Users = {};
 
     constructor(){

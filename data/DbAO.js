@@ -9,7 +9,7 @@ class DbAO{
         dbContext.Users.find({email: user.email}, function(err, report){
             if(Object.keys(report).length == 0){
                 //hash users password
-                user.password = bcrypt.hashSync(password, 6);
+                user.password = bcrypt.hashSync(password, 8);
 
                 //insert user to db
                 dbContext.Users.insert(user, function(err, report){
@@ -23,3 +23,5 @@ class DbAO{
         
     }
 }
+
+module.exports = DbAO;
