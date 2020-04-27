@@ -13,7 +13,8 @@ router.get('/', function(req, res){
     }); 
 
 //registration
-router.post('/register', function(req, res){
+router.post('/register',
+    function(req, res){
     var user = new User();
     user.email = req.body.email;
     user.firstName = req.body.firstName;

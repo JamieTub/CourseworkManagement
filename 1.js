@@ -5,6 +5,10 @@ const path = require("path");
 var config = require("./config");
 const Seed = require("./data/dbSeed");
 var jwt = require('jsonwebtoken');
+var parser = require('body-parser');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
 
 //using express
 const app = express();
@@ -14,13 +18,45 @@ app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 app.set("views", path.resolve(__dirname, "views"));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(parser.urlencoded({extended: false}));
+app.use(parser.json());
+app.use(cookieParser());
+
+// app.use(function(req, res, next){
+//     var token = req.cookies.auth;
+
+//     if(token){
+//         //verify the token
+//         jwt.verify(token, config.secret, function(error, data){
+//             //if error, redirect to the homepage
+//             if(error){
+//                 res.redirect("/");
+//             }else{
+//                 next();
+//             }
+//         });
+//         }
+//         else{
+//             res.redirect("/");
+//         }
+// });
+
+app.use(session({
+    secret: "fdgsdfgfsd",
+    resave: false,
+    saveUninitialized: false,
+    //cookie: { secure: true }
+  }))
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //seeding
 
 let seed = new Seed();
 //seed.initUser();
+
+
 
 //routing
 const userRoutes = require('./routes/userRoutes');
