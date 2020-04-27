@@ -1,0 +1,96 @@
+html
+{
+	height: 100%;
+}
+
+*
+{
+	margin: 0;
+  padding: 0;
+	box-sizing: border-box;
+}
+
+/*overall page*/
+body
+{
+	font: normal .80em 'oboto', arial, sans-serif;
+	font-size: 1.7vw;
+  background: #46B294;
+	position: relative;
+	padding-bottom: 55px;
+	min-height: 100vh;
+}
+
+/*Section where tables are located*/
+article
+{
+	padding: 10px;
+	background-color: #46B294;
+	margin-top: 2%;
+	margin-right: 15%;
+	margin-bottom: 15%;
+	border-radius: 2%;
+	margin-left: 15%;
+	color: black;
+}
+
+/*Text style*/
+p
+{
+	padding: 0 0 20px 0;
+  line-height: 1.7em;
+}
+
+/*Heading styles*/
+h1
+{
+	font: normal .80em 'oboto', Lucida, sans-serif;
+	background-color: #46B294;
+	padding: 2% 5% 3% 5%;
+	color: black;
+	text-align: center;
+	font-size: 4vw;
+	text-decoration: underline;
+}
+
+/*table styles*/
+table {
+  border-collapse: collapse;
+  width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+	border: 2px solid #46B294;
+}
+
+tr:nth-child(even){background-color: #CFE4DC}
+tr:nth-child(odd){background-color: #E9F2EF}
+
+/*button style for new project*/
+button {
+  background-color: #23594a;
+	font-weight: bold;
+	color: white;
+  border: none;
+	border-radius: 3px;
+  padding: 1% 1%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+	border-radius: 5px;
+	margin-left: 27%;
+}
+
+/*button style for sign out*/
+.button2 {
+	background-color:	#DC143C;
+	padding: 8px;
+	margin-left: 93%;
+
+}
