@@ -1,0 +1,37 @@
+<header>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</header>
+
+<form action="/register" method="post">
+
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" for="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" for="password" class="form-control" id="password" name="password">
+    </div>
+    <div class="form-group">
+        <label for="confPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="confPassword">
+    </div>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" for="firstName" class="form-control" id="firstName" name="firstName">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Surname</label>
+        <input type="text" for="lastName" class="form-control" id="lastName" name="lastName">
+    </div>
+    <button id="regBtn" name="regBtn" type="submit" class="btn btn-primary" value="">Register</button>
+</form>
+
