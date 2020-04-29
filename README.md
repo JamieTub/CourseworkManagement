@@ -11,6 +11,7 @@ Instructions:
 2) Press the Source Control Icon on the right hand column.
 3) Select Clone Repository and paste this link: "https://github.com/JamieTub/CourseworkManagement.git"
 4) Once the Application has loaded, Select "Terminal" on the top menu and click new terminal.
-5) Type in the terminal once loaded: "node 1.js" and a message should follow.
-6) Load up your preferred browser and paste: "http://localhost:3000/" and the application is now available to use.
+5) Paste the following command to ready the application for startup conditions: "npm install mustache-express --save", 
+6) Type in the terminal once loaded: "node 1.js" and a message should follow.
+7) Load up your preferred browser and paste: "http://localhost:3000/" and the application is now available to use.
 
