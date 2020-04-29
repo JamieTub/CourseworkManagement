@@ -11,11 +11,7 @@ router.get('/', function(req, res) {
     //get the current logged in user
     var token = req.cookies.auth;
     jwt.verify(token, config.secret, function(error, data){
-        //get the users exsisting coursework
-
-        res.render('coursework', {}
-        );
-        return;
+        //get the users existing coursework
     })
     return;
 });
