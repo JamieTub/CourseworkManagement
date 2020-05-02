@@ -22,12 +22,12 @@ line-height:50px;
 <h2>Coursework List</h2>
 </style>
 <div class="text-right">
-    <a href="/cw-entry" class="btn btn-primary">
+    <a href="/cw-create" class="btn btn-primary">
       Add Coursework
     </a>
 </div>
 
-{{#entries}}   
+{{#coursework}}   
   <table class="table table-bordered table-striped table-hover table-condensed">
     <thead>
       <tr> 
@@ -41,21 +41,21 @@ line-height:50px;
     <tbody>
       <tr>
         <td>Coursework Title</td>
-        <td>{{Title}}</td>
+        <td>{{title}}</td>
       </tr>
       <tr>
         <td>Module</td>
-        <td>{{Module}}</td>
+        <td>{{module}}</td>
       </tr>
       <tr>
         <td>Due Date</td>
-        <td>{{DueDate}}</td>
+        <td>{{dueDate}}</td>
       </tr>
       <tr>
         <td>Completion Date</td>
-        <td>{{CompDate}}</td>
+        <td>{{compDate}}</td>
       </tr>
-      {{/entries}}
+      {{/coursework}}
     </tbody>
   </table>
 </div>
