@@ -62,6 +62,7 @@ let seed = new Seed();
 const userRoutes = require('./routes/userRoutes');
 const courseworkRouter = require('./routes/courseworkRoutes');
 
+//user auth
 app.use('/', userRoutes);
 
 //coursework
