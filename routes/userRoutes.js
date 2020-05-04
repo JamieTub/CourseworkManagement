@@ -15,53 +15,7 @@ router.get('/', function(req, res){
     res.render('home', {});
 }); 
 
-//load coursework page to get all coursework
-router.get('/coursework', function(req, res) {
-    //get the current logged in user
-    var token = req.cookies.auth;
-    jwt.verify(token, config.secret, function(error, data){
-        //get the users existing coursework
-        cDAO.getAllCoursework()
-        .then((list) => {
-            res.render('coursework', {
-                "title": 'Coursework List',
-                "coursework": list
-            });
-            console.log("Retrieved Coursework:", list);
-        })
-        .catch((err) => {
-            console.log('Error retrieving all coursework:', err);
-        });
-    })
-    return;
-});
 
-//create a new coursework
-router.get('/cw-create', function(req, res) {
-    //get the current logged in user
-    var token = req.cookies.auth;
-    jwt.verify(token, config.secret, function(error, data){
-        //load the cw create form
-        res.render("cw-create", {'title':'Create Coursework'});
-    })
-    return;
-});
-
-//create a new coursework
-router.post('/cw-create', function(req, res) {
-    //get the current logged in user
-    var token = req.cookies.auth;
-    jwt.verify(token, config.secret, function(error, data){
-        if (!req.body.title) {
-            res.status(400).send("Coursework title must be provided.");
-            return;
-        }
-        //var grunt = (/true/i).test(request.body.grant);
-        cDAO.addCoursework( req.body.title, req.body.module, req.body.dueDate, req.body.compDate);
-        res.redirect("coursework");
-    })
-    return;
-});
 
 //registration
 router.post('/register',
@@ -80,4 +34,22 @@ router.post('/register',
         res.redirect('coursework');
     });
 });
+
+//login
+router.post('/login',
+    function(req, res){
+        Database.login(req.body.email, req.body.password)
+        .then((user) => {
+            console.log("Log in Successful");
+            var token = jwt.sign({_id: user._id}, config.secret, {expiresIn: 86400});
+            res.cookie('token', token);
+        }).then(result => {
+            res.redirect('coursework');
+        })
+        .catch((error) => {
+            console.log('error', "Log in not Successful");
+            res.redirect('/');
+        });
+    });
+
 module.exports = router;
