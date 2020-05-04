@@ -1,37 +1,53 @@
-<header>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+{{>navbar}}
+<head>
+  <title>Register Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<style>
+input[type=text],[type=email],[type=password], select, textarea {
+  width: 20%;
+  padding: 12px;
+  border: 1px solid blue;
+  border-radius: 4px;
+  resize: vertical;
+}
+</style>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</header>
-
-<form action="/register" method="post">
-
-    <div class="form-group">
+<center>
+<h3>Register Page</h3>
+<div class="form-group">
+  <form action="/register" method="post">
+    <br>
         <label for="email">Email address</label>
-        <input type="email" for="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
+        <input type="email" for="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="We'll never share your email with anyone else." required>
+    </br>
+    <br>
         <label for="password">Password</label>
-        <input type="password" for="password" class="form-control" id="password" name="password">
-    </div>
-    <div class="form-group">
+        <input type="password" for="password" class="form-control" id="password" name="password" required>
+    </br>
+    <br>
         <label for="confPassword">Confirm Password</label>
-        <input type="password" class="form-control" id="confPassword">
-    </div>
-    <div class="form-group">
+        <input type="password" class="form-control" id="confPassword" required>
+    <br>
+    <br>
         <label for="firstName">First Name</label>
-        <input type="text" for="firstName" class="form-control" id="firstName" name="firstName">
-    </div>
-    <div class="form-group">
+        <input type="text" for="firstName" class="form-control" id="firstName" name="firstName" required>
+    </br>
+    <br>
         <label for="lastName">Surname</label>
-        <input type="text" for="lastName" class="form-control" id="lastName" name="lastName">
-    </div>
-    <button id="regBtn" name="regBtn" type="submit" class="btn btn-primary" value="">Register</button>
-</form>
+        <input type="text" for="lastName" class="form-control" id="lastName" name="lastName" required>
+    </br>
+    <input type="submit" value="Register" id="rtgBtn" name="rtgBtn" class="btn btn primary">
+  </form>
+</div>
+</center>
+</body>
+</html>
 
