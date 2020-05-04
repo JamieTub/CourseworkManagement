@@ -25,9 +25,11 @@ router.get('/coursework', function(req, res) {
         .catch((err) => {
             console.log('Error retrieving all coursework:', err);
         });
-    })
+    });
     return;
 });
+
+
 
 //create a new coursework
 router.get('/cw-create', function(req, res) {

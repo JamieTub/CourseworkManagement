@@ -18,23 +18,6 @@ class Coursework {
             this.dbCoursework = new Datastore();
         }
     }
-
-    // method to initialise the db
-    init() {
-        this.dbCoursework.insert({
-            title: 'WPD2', 
-            module: 'WPD2 Module Description', 
-            dueDate: '02/02/2020', 
-            compDate: '29/01/2020'
-
-        }, function (err, doc) {
-            if (err) {
-                console.log('Error inserting the coursework into the database', err);
-            } else {
-                console.log('coursework inserted into database');
-            }
-        });
-    };
      
     //retrieve all courseworks
      getAllCoursework() {

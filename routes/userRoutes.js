@@ -4,8 +4,7 @@ var Coursework = require("../models/Coursework");
 var Database = require("../data/DbAO");
 var jwt = require('jsonwebtoken');
 var config = require('../config');
-let cDAO = new Coursework();
-cDAO.init();
+
 
 var router = express.Router();
 var db = new Database();
@@ -31,7 +30,7 @@ router.post('/register',
         //add token
         var token = jwt.sign(user,config.secret, {expiresIn: 86400});
         res.cookie('token', token);
-        res.redirect('coursework');
+        res.redirect('/coursework');
     });
 });
 
