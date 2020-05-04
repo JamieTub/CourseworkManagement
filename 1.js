@@ -55,6 +55,7 @@ app.use(passport.session());
 
 let seed = new Seed();
 //seed.initUser();
+//seed.initCoursework();
 
 
 
@@ -66,7 +67,7 @@ const courseworkRouter = require('./routes/courseworkRoutes');
 app.use('/', userRoutes);
 
 //coursework
-app.use('/coursework', courseworkRouter);
+app.use('coursework', courseworkRouter);
 
 // a custom 404 page
 app.use(function (req, res) {
