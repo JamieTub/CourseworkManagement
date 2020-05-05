@@ -12,14 +12,14 @@ module.exports = router;
 //load coursework page to get all coursework
 router.get('/', function(req, res) {
     //get the current logged in user
-    var token = req.cookies.auth;
+    var token = req.cookies.token;
     jwt.verify(token, config.secret, function(error, data){
         //get the users existing coursework
         db.getAllCoursework()
         .then((list) => {
             res.render('coursework', {
                 "title": 'Coursework List',
-                "coursework": list
+                "coursework": {}
             });
             console.log("Retrieved Coursework:", list);
         })

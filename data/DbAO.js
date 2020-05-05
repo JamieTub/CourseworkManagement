@@ -62,7 +62,7 @@ login(email, password){
     });
     }
     
-    //retrieve all courseworks
+//retrieve all courseworks
 getAllCoursework() {
     return new Promise((resolve, reject) => {
         dbContext.Coursework.find({}, function (err, coursework) {

@@ -53,4 +53,11 @@ router.post('/login',
         });
     });
 
+
+router.get('/logout', function(req, res) {
+    //remove the token
+    res.clearCookie('token');
+    res.redirect('/login');
+})
+
 module.exports = router;
