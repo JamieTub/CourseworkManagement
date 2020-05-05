@@ -5,16 +5,17 @@ var config = require('../config');
 
 var router = express.Router();
 var db = new Database();
+db.ini
 
 module.exports = router;
 
 //load coursework page to get all coursework
-router.get('/coursework', function(req, res) {
+router.get('/', function(req, res) {
     //get the current logged in user
     var token = req.cookies.auth;
     jwt.verify(token, config.secret, function(error, data){
         //get the users existing coursework
-        Database.getAllCoursework()
+        db.getAllCoursework()
         .then((list) => {
             res.render('coursework', {
                 "title": 'Coursework List',
@@ -29,10 +30,8 @@ router.get('/coursework', function(req, res) {
     return;
 });
 
-
-
 //create a new coursework
-router.get('/cw-create', function(req, res) {
+router.get('/create', function(req, res) {
     //get the current logged in user
     var token = req.cookies.auth;
     jwt.verify(token, config.secret, function(error, data){
@@ -43,7 +42,7 @@ router.get('/cw-create', function(req, res) {
 });
 
 //create a new coursework
-router.post('/cw-create', function(req, res) {
+router.post('/create', function(req, res) {
     //get the current logged in user
     var token = req.cookies.auth;
     jwt.verify(token, config.secret, function(error, data){

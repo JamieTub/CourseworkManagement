@@ -22,24 +22,6 @@ app.use(parser.urlencoded({extended: false}));
 app.use(parser.json());
 app.use(cookieParser());
 
-// app.use(function(req, res, next){
-//     var token = req.cookies.auth;
-
-//     if(token){
-//         //verify the token
-//         jwt.verify(token, config.secret, function(error, data){
-//             //if error, redirect to the homepage
-//             if(error){
-//                 res.redirect("/");
-//             }else{
-//                 next();
-//             }
-//         });
-//         }
-//         else{
-//             res.redirect("/");
-//         }
-// });
 
 app.use(session({
     secret: "fdgsdfgfsd",
@@ -57,8 +39,6 @@ let seed = new Seed();
 //seed.initUser();
 //seed.initCoursework();
 
-
-
 //routing
 const userRoutes = require('./routes/userRoutes');
 const courseworkRouter = require('./routes/courseworkRoutes');
@@ -67,7 +47,7 @@ const courseworkRouter = require('./routes/courseworkRoutes');
 app.use('/', userRoutes);
 
 //coursework
-app.use('coursework', courseworkRouter);
+app.use('/coursework', courseworkRouter);
 
 // a custom 404 page
 app.use(function (req, res) {
@@ -83,7 +63,6 @@ app.use(function (err, req, res, next) {
     res.status(500);
     res.send('500 - Server Error');
 });
-
 
 app.listen(app.get('port'), function () {
 console.log('Express started on http://localhost:' + 

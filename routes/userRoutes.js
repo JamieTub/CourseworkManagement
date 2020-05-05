@@ -14,8 +14,6 @@ router.get('/', function(req, res){
     res.render('home', {});
 }); 
 
-
-
 //registration
 router.post('/register',
     function(req, res){
@@ -26,28 +24,32 @@ router.post('/register',
     console.log(user)
 
     //register the new user
-    db.register(user, req.body.password, function(user){
+    db.register(user, req.body.password)
         //add token
-        var token = jwt.sign(user,config.secret, {expiresIn: 86400});
-        res.cookie('token', token);
-        res.redirect('/coursework');
-    });
+        .then((user) => {
+            var token = jwt.sign(user,config.secret, {expiresIn: 86400});
+            res.cookie('token', token);
+            res.redirect('/coursework/');
+        })
 });
+
+router.get('/login', function(req, res){
+    res.render('login', {});
+}); 
 
 //login
 router.post('/login',
     function(req, res){
-        Database.login(req.body.email, req.body.password)
+        db.login(req.body.email, req.body.password)
         .then((user) => {
             console.log("Log in Successful");
             var token = jwt.sign({_id: user._id}, config.secret, {expiresIn: 86400});
             res.cookie('token', token);
-        }).then(result => {
-            res.redirect('coursework');
+            res.redirect('/coursework');
         })
         .catch((error) => {
             console.log('error', "Log in not Successful");
-            res.redirect('/');
+            res.redirect('/login');
         });
     });
 
