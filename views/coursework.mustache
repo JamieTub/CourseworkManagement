@@ -23,7 +23,7 @@ line-height:50px;
 <h2>Coursework List</h2>
 </style>
 <div class="text-right">
-    <a href="/cw-create" class="btn btn-primary">
+    <a href="/coursework/create" class="btn btn-primary">
       Add Coursework
     </a>
 </div>
@@ -55,6 +55,7 @@ line-height:50px;
       <tr>
         <td>Completion Date</td>
         <td>{{compDate}}</td>
+        <a class="nav-link" href="delete/{{_id}}">Delete Entry</a>
       </tr>
       {{/coursework}}
     </tbody>

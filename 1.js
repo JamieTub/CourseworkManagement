@@ -9,9 +9,13 @@ var parser = require('body-parser');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
+var DbAO = require("./data/DbAO");
 
 //using express
 const app = express();
+
+//initialise databases
+DbAO.init();
 
 app.set('port', process.env.PORT || 3000);
 app.engine('mustache', mustache());
@@ -34,8 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //seeding
-
-let seed = new Seed();
+//let seed = new Seed();
 //seed.initUser();
 //seed.initCoursework();
 

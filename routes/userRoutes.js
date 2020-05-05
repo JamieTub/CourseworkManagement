@@ -1,13 +1,11 @@
 var express = require('express');
 var User = require("../models/User");
-var Coursework = require("../models/Coursework");
-var Database = require("../data/DbAO");
+var db = require("../data/DbAO");
 var jwt = require('jsonwebtoken');
 var config = require('../config');
 
 
 var router = express.Router();
-var db = new Database();
 
 //homepage
 router.get('/', function(req, res){
@@ -27,10 +25,12 @@ router.post('/register',
     db.register(user, req.body.password)
         //add token
         .then((user) => {
-            var token = jwt.sign(user,config.secret, {expiresIn: 86400});
+            var token = jwt.sign({_id: user._id},config.secret, {expiresIn: 86400});
             res.cookie('token', token);
             res.redirect('/coursework/');
-        })
+        }).catch((error) => {
+            console.log('Breaks here.' + error);
+        });
 });
 
 router.get('/login', function(req, res){
