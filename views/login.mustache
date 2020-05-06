@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{{! {{>navbar}} }}
+{{>navbar}}
 <head>
   <title>Login Page</title>
   <meta charset="utf-8">
@@ -10,13 +10,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
+<center>
 <style>
-table td {
-width:33.3333%;
-height:30px;
-line-height:50px;
+input[type=text],[type=email],[type=password], select, textarea {
+  width: 20%;
+  padding: 12px;
+  border: 1px solid blue;
+  border-radius: 4px;
+  resize: vertical;
 }
 </style>
+
 <body>
 
 <h3>Login</h3>
